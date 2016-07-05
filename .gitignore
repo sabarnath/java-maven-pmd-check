@@ -13,3 +13,9 @@ hs_err_pid*
 
 #mvn ignore files
 .mvn/
+
+#eclipse ignore files
+.classpath
+.project
+.settings/
+target/
