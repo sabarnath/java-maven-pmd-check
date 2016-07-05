@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.saba</groupId>
-	<artifactId>sabari</artifactId>
+	<artifactId>sabari-maven-pmd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -54,9 +54,6 @@
 		    <artifactId>poi-ooxml</artifactId>
 		    <version>3.9</version>
 		</dependency>
-		
-		
-			
 	</dependencies>
 	
 	<build>
@@ -68,7 +65,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.1</version>
 				<configuration>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
@@ -76,7 +73,9 @@
 			</plugin>
 			
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.1</version>
 					<configuration>
 						<includeTests>true</includeTests>
 						<minimumTokens>100</minimumTokens>
