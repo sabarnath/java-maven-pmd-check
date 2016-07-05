@@ -21,6 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<pmd-config-url>/ruleset.xml</pmd-config-url>
 	</properties>
 
 	<dependencies>
@@ -41,6 +42,40 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+					<configuration>
+						<includeTests>true</includeTests>
+						<minimumTokens>100</minimumTokens>
+						<linkXref>true</linkXref>
+						<targetJdk>${targetJdk}</targetJdk>
+						<rulesets>
+							<ruleset>${pmd-config-url}</ruleset>
+						</rulesets>
+						<failOnViolation>true</failOnViolation>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>test</phase>
+							<goals>
+								<goal>pmd</goal>
+								<goal>cpd</goal>
+								<goal>cpd-check</goal>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
 			</plugin>
 		</plugins>
 	</build>
